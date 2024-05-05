@@ -1,4 +1,4 @@
-package com.example.ybsproject
+package com.example.ybsproject.mainfragment
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

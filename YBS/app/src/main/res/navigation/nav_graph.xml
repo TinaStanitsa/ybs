@@ -7,7 +7,15 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.ybsproject.MainFragment"
+        android:name="com.example.ybsproject.mainfragment.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_photoFragment"
+            app:destination="@id/photoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="com.example.ybsproject.photofragment.PhotoFragment"
+        android:label="PhotoFragment" />
 </navigation>

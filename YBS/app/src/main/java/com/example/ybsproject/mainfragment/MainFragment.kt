@@ -1,4 +1,4 @@
-package com.example.ybsproject
+package com.example.ybsproject.mainfragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
