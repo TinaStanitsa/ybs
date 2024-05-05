@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.ybsproject.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
+
+    private val viewModel by viewModels<MainFragmentViewModel>()
 
     private var _binding: FragmentMainBinding? = null
 
