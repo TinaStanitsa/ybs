@@ -61,8 +61,17 @@ class MainFragmentViewModel @Inject constructor() : ViewModel() {
                     call: Call<FlickrResponse>,
                     response: Response<FlickrResponse>
                 ) {
-                    Log.d("success----------------------", "success")
-                    mutablePhotosLiveData.postValue(emptyList())
+
+                    val photoList = response.body()?.photos?.photo?.map {
+                        Photo(
+                            id = it.id,
+                            url = "https://farm${it.farm}.staticflickr.com/${it.server}/${it.id}_${it.secret}.jpg",
+                            title = it.title,
+                            owner = it.owner
+                        )
+                    }
+
+                   photoList?.let {   mutablePhotosLiveData.postValue(it)}
                 }
 
                 override fun onFailure(call: Call<FlickrResponse>, t: Throwable) {

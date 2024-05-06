@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ybsproject.databinding.FragmentMainBinding
+import com.example.ybsproject.mainfragment.adapter.PhotoAdapter
 
 class MainFragment : Fragment() {
 
@@ -37,6 +39,8 @@ class MainFragment : Fragment() {
     private fun initListeners(){
         viewModel.photosLiveData.observe(viewLifecycleOwner){
             Toast.makeText(requireContext(),"Data Received", Toast.LENGTH_SHORT).show()
+            binding.rvPosts.layoutManager = LinearLayoutManager(context)
+            binding.rvPosts.adapter = PhotoAdapter(it)
         }
     }
 
