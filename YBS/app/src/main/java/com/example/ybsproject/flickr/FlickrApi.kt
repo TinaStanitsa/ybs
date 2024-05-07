@@ -1,15 +1,8 @@
 package com.example.ybsproject.flickr
 
-import com.example.ybsproject.BuildConfig
-import com.google.gson.FieldNamingPolicy
-import com.google.gson.GsonBuilder
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import java.util.concurrent.TimeUnit
+
 
 interface FlickrApi {
 

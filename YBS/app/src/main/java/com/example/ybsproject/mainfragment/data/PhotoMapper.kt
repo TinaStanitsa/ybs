@@ -1,5 +1,6 @@
 package com.example.ybsproject.mainfragment.data
 
+import android.annotation.SuppressLint
 import android.content.Context
 import com.example.ybsproject.flickr.PostResponse
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -39,12 +40,13 @@ class PhotoMapper @Inject constructor(
         return  formattedDate
     }
 
-    fun isSameDay(date1: Date, date2: Date): Boolean {
+    @SuppressLint("SimpleDateFormat")
+    private fun isSameDay(date1: Date, date2: Date): Boolean {
         val dateFormat = SimpleDateFormat("yyyyMMdd")
         return dateFormat.format(date1) == dateFormat.format(date2)
     }
 
-    fun calculateDaysDifference(date1: Date, date2: Date): Long {
+    private fun calculateDaysDifference(date1: Date, date2: Date): Long {
         val diffInMillis = date1.time - date2.time
         return (diffInMillis / (1000 * 60 * 60 * 24)) +1
     }
