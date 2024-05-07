@@ -1,7 +1,7 @@
 package com.example.ybsproject.repository
 
 import com.example.ybsproject.flickr.FlickrApi
-import com.example.ybsproject.flickr.PhotoResponse
+import com.example.ybsproject.flickr.PostResponse
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -18,7 +18,7 @@ private const val CONNECTION_TIMEOUT_MS: Long = 10
 @Singleton
 class FlickrRepositoryImpl @Inject constructor() : FlickrRepository {
 
-    override fun getInitialPhotos(): List<PhotoResponse>? {
+    override fun getInitialPhotos(): List<PostResponse>? {
         val api = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(

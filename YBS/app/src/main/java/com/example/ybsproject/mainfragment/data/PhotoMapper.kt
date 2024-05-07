@@ -1,7 +1,7 @@
 package com.example.ybsproject.mainfragment.data
 
 import android.content.Context
-import com.example.ybsproject.flickr.PhotoResponse
+import com.example.ybsproject.flickr.PostResponse
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -9,8 +9,8 @@ import javax.inject.Inject
 
 class PhotoMapper @Inject constructor(
     @ApplicationContext private val context: Context
-): (List<PhotoResponse>) -> List<Post> {
-    override fun invoke(data: List<PhotoResponse>): List<Post> {
+): (List<PostResponse>) -> List<Post> {
+    override fun invoke(data: List<PostResponse>): List<Post> {
        return data.map {
             Post(
                 id = it.id,

@@ -4,16 +4,16 @@ package com.example.ybsproject.flickr
 
 
 data class FlickrResponse(
-    val photos: PhotosMetaData
+    val photos: PostData
 )
 
-data class PhotosMetaData(
+data class PostData(
     val page: Int,
-    val photo: List<PhotoResponse>
+    val photo: List<PostResponse>
 )
 
 // have to give specific name, same as json response
-data class PhotoResponse(
+data class PostResponse(
     val id: String,
     val owner: String,
     val secret: String,
