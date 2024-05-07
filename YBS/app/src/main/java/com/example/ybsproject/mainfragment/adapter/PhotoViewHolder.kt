@@ -3,13 +3,13 @@ package com.example.ybsproject.mainfragment.adapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ybsproject.databinding.LayoutPhotoCardBinding
-import com.example.ybsproject.mainfragment.data.Photo
+import com.example.ybsproject.mainfragment.data.Post
 
 class PhotoViewHolder(
     private val binding: LayoutPhotoCardBinding
 ): RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Photo){
+    fun bind(item: Post){
         binding.tvNameTitle.text = item.ownerName
         Glide.with(binding.tvPostPicture)
             .load(item.url)
@@ -17,5 +17,7 @@ class PhotoViewHolder(
         Glide.with(binding.tvProfilePicture)
             .load(item.ownerUrl)
             .into(binding.tvProfilePicture)
+        binding.tvTags.text = "Tags: ${item.tags}"
+        binding.tvDate.text = item.dateUpload
     }
 }

@@ -9,7 +9,10 @@ import androidx.fragment.app.viewModels
 import com.example.ybsproject.databinding.FragmentMainBinding
 import com.example.ybsproject.databinding.FragmentPhotoBinding
 import com.example.ybsproject.mainfragment.MainFragmentViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class PhotoFragment: Fragment() {
 
     private val viewModel by viewModels<PhotoViewModel>()

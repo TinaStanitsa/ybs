@@ -12,6 +12,7 @@ data class PhotosMetaData(
     val photo: List<PhotoResponse>
 )
 
+// have to give specific name, same as json response
 data class PhotoResponse(
     val id: String,
     val owner: String,
@@ -19,5 +20,7 @@ data class PhotoResponse(
     val server: String,
     val farm: Int,
     val title: String,
-    var ownername:String
+    val ownername:String,
+    val tags: String,
+    val dateupload: String
 )

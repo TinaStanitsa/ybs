@@ -10,7 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ybsproject.databinding.FragmentMainBinding
 import com.example.ybsproject.mainfragment.adapter.PhotoAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment : Fragment() {
 
     private val viewModel by viewModels<MainFragmentViewModel>()
@@ -33,7 +35,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
-        viewModel.getPhotos()
+        viewModel.getInitialPhotos()
     }
 
     private fun initListeners(){
