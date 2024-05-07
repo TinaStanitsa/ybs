@@ -10,10 +10,12 @@ class PhotoViewHolder(
 ): RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Photo){
-        binding.tvNameTitle.text = item.owner
+        binding.tvNameTitle.text = item.ownerName
         Glide.with(binding.tvPostPicture)
             .load(item.url)
             .into(binding.tvPostPicture)
-
+        Glide.with(binding.tvProfilePicture)
+            .load(item.ownerUrl)
+            .into(binding.tvProfilePicture)
     }
 }

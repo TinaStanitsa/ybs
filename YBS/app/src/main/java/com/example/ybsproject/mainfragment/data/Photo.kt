@@ -4,5 +4,7 @@ data class Photo(
     val id: String,
     val url: String,
     val title: String,
-    val owner: String
+    val ownerName: String,
+    val ownerUrl: String,
+    val owner:String
 )

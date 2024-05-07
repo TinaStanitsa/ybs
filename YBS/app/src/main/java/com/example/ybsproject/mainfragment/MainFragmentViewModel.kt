@@ -65,7 +65,9 @@ class MainFragmentViewModel @Inject constructor() : ViewModel() {
                             id = it.id,
                             url = "https://farm${it.farm}.staticflickr.com/${it.server}/${it.id}_${it.secret}.jpg",
                             title = it.title,
-                            owner = it.ownername
+                            owner = it.owner,
+                            ownerUrl = "https://farm${it.farm}.staticflickr.com/${it.server}/buddyicons/${it.owner}.jpg",
+                            ownerName = it.ownername
                         )
                     }
 
