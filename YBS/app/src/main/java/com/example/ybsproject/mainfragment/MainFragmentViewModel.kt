@@ -7,9 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ybsproject.flickr.FlickrApi
 import com.example.ybsproject.flickr.FlickrResponse
-import com.example.ybsproject.flickr.PhotosMetaData
 import com.example.ybsproject.mainfragment.data.Photo
-import com.example.ybsproject.photofragment.PhotoViewModel
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -67,7 +65,7 @@ class MainFragmentViewModel @Inject constructor() : ViewModel() {
                             id = it.id,
                             url = "https://farm${it.farm}.staticflickr.com/${it.server}/${it.id}_${it.secret}.jpg",
                             title = it.title,
-                            owner = it.owner
+                            owner = it.ownername
                         )
                     }
 
