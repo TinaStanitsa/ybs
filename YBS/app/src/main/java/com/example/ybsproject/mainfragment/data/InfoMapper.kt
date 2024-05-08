@@ -1,15 +1,10 @@
 package com.example.ybsproject.mainfragment.data
 
-import android.content.Context
-import com.example.ybsproject.EMPTY
 import com.example.ybsproject.flickr.PhotoResponse
 import com.example.ybsproject.flickr.Tag
-import com.example.ybsproject.flickr.Tags
-import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 class InfoMapper @Inject constructor(
-    @ApplicationContext private val context: Context
 ):(PhotoResponse) -> PhotoInfo {
     override fun invoke(infoResponse: PhotoResponse): PhotoInfo {
         return PhotoInfo(
