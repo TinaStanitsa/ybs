@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.ybsproject.R
 import com.example.ybsproject.databinding.FragmentPhotoBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -59,7 +61,7 @@ class PhotoFragment : Fragment() {
             .into(binding.tvProfilePicture)
 
         initListeners()
-        photoId?.let{
+        photoId?.let {
             viewModel.getPhotoInfo(it)
         }
 
@@ -70,12 +72,31 @@ class PhotoFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        viewModel.photoInfoLiveData.observe(viewLifecycleOwner){
+        viewModel.photoInfoLiveData.observe(viewLifecycleOwner) {
             binding.tvRealName.text = it.realName
             binding.tvUserName.text = it.userName
 
-            binding.cvPhotoInfo.clPhotoInfo.tv
+            it.title?.let { titleText ->
+                binding.tvTitle.text = getString(R.string.photo_title)
 
+                binding.tvTitleText.text = titleText
+                binding.tvTitle.isVisible = true
+                binding.tvTitleText.isVisible = true
+            }
+            
+            it.location?.let { locationText ->
+                binding.tvLocationTitle.text = getString(R.string.photo_location)
+                binding.tvLocationText.text = locationText
+                binding.tvLocationTitle.isVisible = true
+                binding.tvLocationText.isVisible = true
+            }
+
+            it.tags?.let { tagsText ->
+                binding.tvTagsTitle.text = getString(R.string.photo_tags)
+                binding.tvTagsText.text = tagsText
+                binding.tvTagsTitle.isVisible = true
+                binding.tvTagsText.isVisible = true
+            }
         }
     }
 

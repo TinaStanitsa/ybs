@@ -94,44 +94,63 @@
                     android:id="@+id/tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_photo_info"
-                    tools:text="Title:" />
+                    tools:text="Title:"
+                    tools:visibility="visible"
+
+                    />
+
                 <TextView
+                    android:id="@+id/tv_title_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv_title_text"
+                    android:visibility="gone"
                     app:layout_constraintStart_toEndOf="@id/tv_title"
                     app:layout_constraintTop_toBottomOf="@id/tv_photo_info"
-                    tools:text="example title"/>
+                    tools:text="example title"
+                    tools:visibility="visible" />
+
                 <TextView
+                    android:id="@+id/tv_tags_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv_tags_title"
+                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_title"
-                    tools:text="Tags: "/>
+                    tools:text="Tags: "
+                    tools:visibility="visible" />
+
                 <TextView
+                    android:id="@+id/tv_tags_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv_tags_text"
+                    android:visibility="gone"
                     app:layout_constraintStart_toEndOf="@id/tv_tags_title"
                     app:layout_constraintTop_toBottomOf="@id/tv_title"
-                    tools:text="Example Tags "/>
+                    tools:text="Example Tags "
+                    tools:visibility="visible" />
+
                 <TextView
                     android:id="@+id/tv_location_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/tv_tags_title"
+                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:text="Location"/>
+                    app:layout_constraintTop_toBottomOf="@id/tv_tags_title"
+                    tools:text="Location"
+                    tools:visibility="visible" />
+
                 <TextView
+                    android:id="@+id/tv_location_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv_location_text"
-                    tools:text="Example Location"
+                    android:visibility="gone"
                     app:layout_constraintStart_toEndOf="@id/tv_location_title"
-                    app:layout_constraintTop_toBottomOf="@id/tv_tags_title"/>
+                    app:layout_constraintTop_toBottomOf="@id/tv_tags_title"
+                    tools:text="Example Location"
+                    tools:visibility="visible" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
