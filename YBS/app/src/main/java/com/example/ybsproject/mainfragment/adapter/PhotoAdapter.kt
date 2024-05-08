@@ -8,7 +8,8 @@ import com.example.ybsproject.mainfragment.data.Post
 
 class PhotoAdapter(
     private val dataset: List<Post>,
-    private val onPostClicked: (String, String, String) -> Unit
+    private val onPostClicked: (String, String, String) -> Unit,
+    private val onProfileCLicked: (String, String) -> Unit
 ): RecyclerView.Adapter<PhotoViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -20,6 +21,6 @@ class PhotoAdapter(
     }
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
-        holder.bind(dataset[position],onPostClicked )
+        holder.bind(dataset[position],onPostClicked, onProfileCLicked )
     }
 }

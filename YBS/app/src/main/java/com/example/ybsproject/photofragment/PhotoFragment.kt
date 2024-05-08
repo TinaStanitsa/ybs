@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -59,19 +60,20 @@ class PhotoFragment : Fragment() {
             .load(profilePictureUrl)
             .into(binding.tvProfilePicture)
 
-        initListeners()
+        initListeners(profilePictureUrl)
         photoId?.let {
             viewModel.getPhotoInfo(it)
         }
 
     }
 
-    private fun initListeners() {
+    private fun initListeners(profilePictureUrl: String?) {
         binding.ivBackButton.setOnClickListener {
             findNavController().navigateUp()
         }
 
         viewModel.photoInfoLiveData.observe(viewLifecycleOwner) {
+
             binding.tvRealName.text = it.realName
             binding.tvUserName.text = it.userName
 
@@ -96,8 +98,19 @@ class PhotoFragment : Fragment() {
                 binding.tvTagsTitle.isVisible = true
                 binding.tvTagsText.isVisible = true
             }
+
         }
+
+        binding.clUserInfo.setOnClickListener {
+            val bundle = bundleOf(
+                "profile_url" to profilePictureUrl
+            )
+            findNavController().navigate(R.id.action_photoFragment_to_userPhotoListFragment, bundle)
+        }
+
     }
+
+
 
     override fun onDestroy() {
         super.onDestroy()

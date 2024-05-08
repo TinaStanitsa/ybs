@@ -42,7 +42,7 @@ class MainFragment : Fragment() {
     private fun initListeners(){
         viewModel.photosLiveData.observe(viewLifecycleOwner){
             binding.rvPosts.layoutManager = LinearLayoutManager(context)
-            binding.rvPosts.adapter = PhotoAdapter(it, ::onPostClicked)
+            binding.rvPosts.adapter = PhotoAdapter(it, ::onPostClicked, ::onProfileCLicked)
         }
     }
 
@@ -51,11 +51,19 @@ class MainFragment : Fragment() {
         _binding = null
     }
 
-    fun onPostClicked(postId: String, photoUrl:String, profilePictureUrl: String){
+    private fun onPostClicked(postId: String, photoUrl:String, profilePictureUrl: String){
         val bundle = bundleOf(
             "post_id" to postId,
             "photo_url" to photoUrl,
             "profile_url" to profilePictureUrl)
         findNavController().navigate(R.id.action_mainFragment_to_photoFragment, bundle)
+    }
+
+    private fun onProfileCLicked(userID :String, profilePictureUrl: String){
+        val bundle = bundleOf(
+            "user_id" to userID,
+            "profile_url" to profilePictureUrl
+        )
+        findNavController().navigate(R.id.action_mainFragment_to_userPhotoListFragment, bundle)
     }
 }
