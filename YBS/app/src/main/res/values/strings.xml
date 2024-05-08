@@ -8,4 +8,6 @@
     <string name="photo_location">Location:</string>
     <string name="photo_posted_date">Date posted:</string>
     <string name="flickr_posts_of_yorkshire">Flickr Posts of Yorkshire</string>
+    <string name="today">Today</string>
+    <string name="day_d">d</string>
 </resources>

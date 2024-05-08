@@ -74,6 +74,10 @@ class PhotoFragment : Fragment() {
 
         viewModel.photoInfoLiveData.observe(viewLifecycleOwner) {
 
+
+            binding.tvPhotoInfo.text = getString(R.string.photo_info)
+            binding.tvPhotoInfo.isVisible = true
+
             binding.tvRealName.text = it.realName
             binding.tvUserName.text = it.userName
 

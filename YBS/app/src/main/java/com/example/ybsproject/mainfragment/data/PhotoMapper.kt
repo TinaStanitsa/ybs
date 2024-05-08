@@ -2,6 +2,7 @@ package com.example.ybsproject.mainfragment.data
 
 import android.annotation.SuppressLint
 import android.content.Context
+import com.example.ybsproject.R
 import com.example.ybsproject.flickr.PostResponse
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.text.SimpleDateFormat
@@ -33,9 +34,9 @@ class PhotoMapper @Inject constructor(
         val date = Date(timestamp)
 
         val formattedDate = if (isSameDay(currentDate, date)) {
-            "Today"
+            context.getString(R.string.today)
         } else {
-            "${calculateDaysDifference(currentDate, date)}d"
+            "${calculateDaysDifference(currentDate, date)}${context.getString(R.string.day_d)}"
         }
         return  formattedDate
     }

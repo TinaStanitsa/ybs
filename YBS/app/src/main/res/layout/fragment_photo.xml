@@ -28,13 +28,14 @@
             android:id="@+id/iv_photo"
             android:layout_width="wrap_content"
             android:layout_height="220dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="36dp"
             android:contentDescription="@string/photo_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/photoCorneredRadiusView"
             tools:src="@drawable/ic_launcher_background" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_user_info"
             android:layout_width="wrap_content"
@@ -77,36 +78,45 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+        <TextView
+            android:id="@+id/tv_photo_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_user_info"
+            tools:text="Photo Info" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_photo_info"
             android:layout_width="match_parent"
+            android:layout_marginHorizontal="16dp"
             android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cl_user_info">
+            app:layout_constraintTop_toBottomOf="@id/tv_photo_info">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_photo_info"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/tv_photo_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Photo Info" />
+                android:layout_height="wrap_content"
+                android:background="#D8AFE9">
 
                 <TextView
                     android:id="@+id/tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="12dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_photo_info"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text="Title:"
                     tools:visibility="visible"
 
@@ -117,8 +127,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
+                    android:layout_marginStart="2dp"
                     app:layout_constraintStart_toEndOf="@id/tv_title"
-                    app:layout_constraintTop_toBottomOf="@id/tv_photo_info"
+                    app:layout_constraintTop_toTopOf="@id/tv_title"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_title"
                     tools:text="example title"
                     tools:visibility="visible" />
 
@@ -127,6 +139,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
+                    android:textSize="16sp"
+                    android:layout_marginStart="4dp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_title"
                     tools:text="Tags: "
@@ -137,8 +152,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
+                    android:layout_marginStart="2dp"
                     app:layout_constraintStart_toEndOf="@id/tv_tags_title"
-                    app:layout_constraintTop_toBottomOf="@id/tv_title"
+                    app:layout_constraintTop_toTopOf="@id/tv_tags_title"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_tags_title"
                     tools:text="Example Tags "
                     tools:visibility="visible" />
 
@@ -147,9 +164,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_tags_title"
-                    tools:text="Location"
+                    tools:text="Location:"
+                    android:layout_marginStart="4dp"
+                    android:paddingBottom="12dp"
                     tools:visibility="visible" />
 
                 <TextView
@@ -157,8 +178,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
+                    android:layout_marginStart="2dp"
+                    android:paddingBottom="12dp"
                     app:layout_constraintStart_toEndOf="@id/tv_location_title"
-                    app:layout_constraintTop_toBottomOf="@id/tv_tags_title"
+                    app:layout_constraintTop_toTopOf="@id/tv_location_title"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_location_title"
                     tools:text="Example Location"
                     tools:visibility="visible" />
 
