@@ -1,5 +1,6 @@
 package com.example.ybsproject.mainfragment
 
+import androidx.core.os.bundleOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,5 +28,9 @@ class MainFragmentViewModel @Inject constructor(
         }
     }
 
-  //  fun postClicked()
+    fun postClicked(post_id: String){
+        val bundle = bundleOf("post_id" to post_id)
+
+
+    }
 }

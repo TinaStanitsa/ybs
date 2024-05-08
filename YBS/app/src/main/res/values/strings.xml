@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">YBSProject</string>
+    <string name="back_button">back button</string>
+    <string name="photo_image">photo image</string>
 </resources>

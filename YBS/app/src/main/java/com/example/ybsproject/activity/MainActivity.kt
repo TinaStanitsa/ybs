@@ -2,6 +2,7 @@ package com.example.ybsproject.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import com.example.ybsproject.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
