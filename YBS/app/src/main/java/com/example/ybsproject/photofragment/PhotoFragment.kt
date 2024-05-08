@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.ybsproject.PHOTO_URL
+import com.example.ybsproject.POST_ID
+import com.example.ybsproject.PROFILE_URL
 import com.example.ybsproject.R
 import com.example.ybsproject.databinding.FragmentPhotoBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,11 +26,7 @@ class PhotoFragment : Fragment() {
 
     private var _binding: FragmentPhotoBinding? = null
 
-    // with the backing property of the kotlin we extract
-    // the non null value of the _binding
     private val binding get() = _binding!!
-
-    // private val photoID: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,9 +47,9 @@ class PhotoFragment : Fragment() {
                 }
             })
 
-        val photoId = arguments?.getString("post_id")
-        val photoUrl = arguments?.getString("photo_url")
-        val profilePictureUrl = arguments?.getString("profile_url")
+        val photoId = arguments?.getString(POST_ID)
+        val photoUrl = arguments?.getString(PHOTO_URL)
+        val profilePictureUrl = arguments?.getString(PROFILE_URL)
 
         Glide.with(binding.ivPhoto)
             .load(photoUrl)
@@ -64,7 +63,6 @@ class PhotoFragment : Fragment() {
         photoId?.let {
             viewModel.getPhotoInfo(it)
         }
-
     }
 
     private fun initListeners(profilePictureUrl: String?) {
@@ -107,18 +105,15 @@ class PhotoFragment : Fragment() {
 
         binding.clUserInfo.setOnClickListener {
             val bundle = bundleOf(
-                "profile_url" to profilePictureUrl
+                PROFILE_URL to profilePictureUrl
             )
             findNavController().navigate(R.id.action_photoFragment_to_userPhotoListFragment, bundle)
         }
 
     }
 
-
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
-
 }
