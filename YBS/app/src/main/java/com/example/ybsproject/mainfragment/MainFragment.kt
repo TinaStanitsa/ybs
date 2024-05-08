@@ -18,8 +18,6 @@ class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
 
-    // with the backing property of the kotlin we extract
-    // the non null value of the _binding
     private val binding get() = _binding!!
 
     override fun onCreateView(

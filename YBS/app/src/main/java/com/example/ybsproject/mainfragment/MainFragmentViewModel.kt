@@ -26,4 +26,6 @@ class MainFragmentViewModel @Inject constructor(
             photos?.let { mutablePhotosLiveData.postValue(mapper(it)) }
         }
     }
+
+  //  fun postClicked()
 }
