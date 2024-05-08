@@ -37,6 +37,8 @@ class MainFragment : Fragment() {
         initListeners()
         if (viewModel.photosLiveData.value.isNullOrEmpty()) // so it will not get initialised every time we go back from photo fragment
             viewModel.getInitialPhotos()
+
+        binding.tvTitle.text = getString(R.string.flickr_posts_of_yorkshire)
     }
 
     private fun initListeners(){

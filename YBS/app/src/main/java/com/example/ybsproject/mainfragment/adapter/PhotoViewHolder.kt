@@ -2,6 +2,7 @@ package com.example.ybsproject.mainfragment.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.ybsproject.R
 import com.example.ybsproject.databinding.LayoutPhotoCardBinding
 import com.example.ybsproject.mainfragment.data.Post
 
@@ -21,7 +22,7 @@ class PhotoViewHolder(
         Glide.with(binding.tvProfilePicture)
             .load(item.ownerUrl)
             .into(binding.tvProfilePicture)
-        binding.tvTags.text = "Tags: ${item.tags}"
+        binding.tvTags.text = item.tags
         binding.tvDate.text = item.dateUpload
 
         binding.root.setOnClickListener {
@@ -34,5 +35,6 @@ class PhotoViewHolder(
         binding.tvNameTitle.setOnClickListener {
             onProfileCLicked(item.owner, item.ownerUrl)
         }
+        binding.tvTagsTitle.text = binding.tvTagsTitle.context.getString(R.string.photo_tags)
     }
 }
