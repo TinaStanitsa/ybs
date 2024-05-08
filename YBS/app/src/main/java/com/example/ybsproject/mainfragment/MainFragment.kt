@@ -9,7 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.ybsproject.PHOTO_URL
+import com.example.ybsproject.POST_ID
+import com.example.ybsproject.PROFILE_URL
 import com.example.ybsproject.R
+import com.example.ybsproject.USER_ID
 import com.example.ybsproject.databinding.FragmentMainBinding
 import com.example.ybsproject.mainfragment.adapter.PhotoAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -55,16 +59,16 @@ class MainFragment : Fragment() {
 
     private fun onPostClicked(postId: String, photoUrl:String, profilePictureUrl: String){
         val bundle = bundleOf(
-            "post_id" to postId,
-            "photo_url" to photoUrl,
-            "profile_url" to profilePictureUrl)
+            POST_ID to postId,
+            PHOTO_URL to photoUrl,
+            PROFILE_URL to profilePictureUrl)
         findNavController().navigate(R.id.action_mainFragment_to_photoFragment, bundle)
     }
 
     private fun onProfileCLicked(userID :String, profilePictureUrl: String){
         val bundle = bundleOf(
-            "user_id" to userID,
-            "profile_url" to profilePictureUrl
+            USER_ID to userID,
+            PROFILE_URL to profilePictureUrl
         )
         findNavController().navigate(R.id.action_mainFragment_to_userPhotoListFragment, bundle)
     }
