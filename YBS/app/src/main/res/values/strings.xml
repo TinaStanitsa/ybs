@@ -2,4 +2,9 @@
     <string name="app_name">YBSProject</string>
     <string name="back_button">back button</string>
     <string name="photo_image">photo image</string>
+    <string name="photo_info">Photo info</string>
+    <string name="photo_title">Title:</string>
+    <string name="photo_tags">Tags:</string>
+    <string name="photo_location">Location:</string>
+    <string name="photo_posted_date">Date posted:</string>
 </resources>

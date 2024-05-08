@@ -51,10 +51,11 @@ class MainFragment : Fragment() {
         _binding = null
     }
 
-    fun onPostClicked(postId: String, photoUrl:String){
+    fun onPostClicked(postId: String, photoUrl:String, profilePictureUrl: String){
         val bundle = bundleOf(
             "post_id" to postId,
-            "photo_url" to photoUrl)
+            "photo_url" to photoUrl,
+            "profile_url" to profilePictureUrl)
         findNavController().navigate(R.id.action_mainFragment_to_photoFragment, bundle)
     }
 }

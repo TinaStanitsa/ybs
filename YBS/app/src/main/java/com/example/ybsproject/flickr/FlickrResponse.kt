@@ -24,3 +24,66 @@ data class PostResponse(
     val tags: String,
     val dateupload: String
 )
+
+
+data class PhotoResponse(
+    val photo: Photo
+)
+
+data class Photo(
+    val id: String,
+    val dateuploaded: String?,
+    val owner: Owner?,
+    val title: Title?,
+    val description: Description?,
+    val views: String?,
+    val tags: Tags?,
+    val location: Location?,
+)
+
+data class Owner(
+    val nsid: String,
+    val username: String?,
+    val realname: String?,
+    val location: String?,
+    val iconserver: String,
+    val iconfarm: Int,
+    val path_alias: String,
+)
+
+
+data class Title(
+    val _content: String
+)
+
+data class Description(
+    val _content: String
+)
+
+
+data class Tags(
+    val tag: List<Tag>
+)
+
+data class Tag(
+    val raw: String,
+)
+
+data class Location(
+    val county: County,
+    val region: Region,
+    val country: Country,
+)
+
+
+data class County(
+    val _content: String
+)
+
+data class Region(
+    val _content: String
+)
+
+data class Country(
+    val _content: String
+)

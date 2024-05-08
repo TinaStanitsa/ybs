@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainFragmentViewModel @Inject constructor(
-    private val mapper: PhotoMapper,
+    private val photoMapper: PhotoMapper,
     private val repository: FlickrRepositoryImpl
 ) : ViewModel() {
     private val mutablePhotosLiveData = MutableLiveData<List<Post>>()
@@ -24,13 +24,7 @@ class MainFragmentViewModel @Inject constructor(
     fun getInitialPhotos() {
         viewModelScope.launch(Dispatchers.IO) {
             val photos = repository.getInitialPhotos()
-            photos?.let { mutablePhotosLiveData.postValue(mapper(it)) }
+            photos?.let { mutablePhotosLiveData.postValue(photoMapper(it)) }
         }
-    }
-
-    fun postClicked(post_id: String){
-        val bundle = bundleOf("post_id" to post_id)
-
-
     }
 }

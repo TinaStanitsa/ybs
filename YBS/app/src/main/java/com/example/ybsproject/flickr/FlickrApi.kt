@@ -3,6 +3,9 @@ package com.example.ybsproject.flickr
 import com.example.ybsproject.BuildConfig
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Part
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 
 interface FlickrApi {
@@ -11,6 +14,8 @@ interface FlickrApi {
     fun fetchImages(): Call<FlickrResponse>
 
 
-    @GET("?method=flickr.photos.getInfo&format=json&nojsoncallback=1&api_key=${BuildConfig.API_KEY}&photo_id=53705025892")
-    fun getPhotoInfo(): Call<FlickrResponse>
+    @GET("?method=flickr.photos.getInfo&format=json&nojsoncallback=1&api_key=${BuildConfig.API_KEY}")
+    fun getPhotoInfo(
+        @Query("photo_id") photoId: String
+    ): Call<PhotoResponse>
 }

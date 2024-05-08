@@ -9,7 +9,7 @@ class PhotoViewHolder(
     private val binding: LayoutPhotoCardBinding
 ): RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Post, onPostClicked: (String, String) -> Unit){
+    fun bind(item: Post, onPostClicked: (String, String, String) -> Unit){
         binding.tvNameTitle.text = item.ownerName
         Glide.with(binding.tvPostPicture)
             .load(item.url)
@@ -21,7 +21,7 @@ class PhotoViewHolder(
         binding.tvDate.text = item.dateUpload
 
         binding.root.setOnClickListener {
-            onPostClicked(item.id, item.url)
+            onPostClicked(item.id, item.url, item.ownerUrl)
         }
     }
 }

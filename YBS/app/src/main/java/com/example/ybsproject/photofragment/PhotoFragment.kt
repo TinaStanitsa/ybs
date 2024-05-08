@@ -10,9 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.example.ybsproject.databinding.FragmentMainBinding
 import com.example.ybsproject.databinding.FragmentPhotoBinding
-import com.example.ybsproject.mainfragment.MainFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -48,19 +46,36 @@ class PhotoFragment : Fragment() {
                 }
             })
 
-        val photoID = arguments?.getString("post_id")
+        val photoId = arguments?.getString("post_id")
         val photoUrl = arguments?.getString("photo_url")
+        val profilePictureUrl = arguments?.getString("profile_url")
 
         Glide.with(binding.ivPhoto)
             .load(photoUrl)
             .into(binding.ivPhoto)
 
+        Glide.with(binding.tvProfilePicture)
+            .load(profilePictureUrl)
+            .into(binding.tvProfilePicture)
+
         initListeners()
+        photoId?.let{
+            viewModel.getPhotoInfo(it)
+        }
+
     }
 
     private fun initListeners() {
         binding.ivBackButton.setOnClickListener {
             findNavController().navigateUp()
+        }
+
+        viewModel.photoInfoLiveData.observe(viewLifecycleOwner){
+            binding.tvRealName.text = it.realName
+            binding.tvUserName.text = it.userName
+
+            binding.cvPhotoInfo.clPhotoInfo.tv
+
         }
     }
 
