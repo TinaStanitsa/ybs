@@ -20,7 +20,7 @@ class MainFragmentViewModel @Inject constructor(
     private val repository: FlickrRepositoryImpl
 ) : ViewModel() {
     private val _postData = MutableLiveData<ViewState<List<Post>, Any>>()
-    val postData: LiveData<ViewState<List<Post>,Any>> = _postData
+    val postData: LiveData<ViewState<List<Post>, Any>> = _postData
 
     fun getInitialPhotos() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -29,7 +29,7 @@ class MainFragmentViewModel @Inject constructor(
             photos?.let {
                 _postData.postValue(ViewState.Success(photoMapper(it)))
             }
-            if (photos == null){
+            if (photos == null) {
                 _postData.postValue(ViewState.Error(EMPTY))
             }
         }

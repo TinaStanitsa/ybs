@@ -107,7 +107,10 @@ class FlickrRepositoryImpl @Inject constructor() : FlickrRepository {
             .build()
             .create(FlickrApi::class.java)
 
-        val noSpacesUserName = userName.replace("\\s".toRegex(), EMPTY) // some usernames were empty and it caused crash
+        val noSpacesUserName = userName.replace(
+            "\\s".toRegex(),
+            EMPTY
+        ) // some usernames were empty and it caused crash
         return try {
             val response = api.getUserPhotos(noSpacesUserName).execute()
             if (response.isSuccessful)

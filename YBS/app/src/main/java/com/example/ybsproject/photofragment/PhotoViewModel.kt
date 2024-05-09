@@ -21,7 +21,7 @@ class PhotoViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _postInfo = MutableLiveData<ViewState<PhotoInfo, Any>>()
-    val postInfo: LiveData<ViewState<PhotoInfo,Any>> = _postInfo
+    val postInfo: LiveData<ViewState<PhotoInfo, Any>> = _postInfo
     fun getPhotoInfo(photoId: String) {
         viewModelScope.launch(Dispatchers.IO) {
             _postInfo.postValue(ViewState.Loading)

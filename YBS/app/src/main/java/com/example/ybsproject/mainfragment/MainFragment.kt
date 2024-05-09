@@ -49,16 +49,17 @@ class MainFragment : Fragment() {
 
     private fun initListeners() {
         viewModel.postData.observe(viewLifecycleOwner) {
-            when(it){
-                is ViewState.Success ->{
+            when (it) {
+                is ViewState.Success -> {
 
                     binding.rvPosts.layoutManager = LinearLayoutManager(context)
-                    binding.rvPosts.adapter = PhotoAdapter(it.result, ::onPostClicked, ::onProfileCLicked)
+                    binding.rvPosts.adapter =
+                        PhotoAdapter(it.result, ::onPostClicked, ::onProfileCLicked)
                     binding.lottieAnimation.isVisible = false
                     binding.lottieAnimation.cancelAnimation()
                 }
 
-                is ViewState.Loading ->{
+                is ViewState.Loading -> {
                     binding.lottieAnimation.isVisible = true
                     binding.lottieAnimation.playAnimation()
                 }
