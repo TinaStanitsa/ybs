@@ -36,5 +36,6 @@ class PhotoViewHolder(
             onProfileCLicked(item.userName, item.profilePictureUrl)
         }
         binding.tvTagsTitle.text = binding.tvTagsTitle.context.getString(R.string.photo_tags)
+        binding.tvPostTitle.text = item.title
     }
 }

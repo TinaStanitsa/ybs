@@ -1,5 +1,6 @@
 package com.example.ybsproject.repository
 
+import com.example.ybsproject.EMPTY
 import com.example.ybsproject.flickr.FlickrApi
 import com.example.ybsproject.flickr.PhotoResponse
 import com.example.ybsproject.flickr.PostResponse
@@ -106,8 +107,9 @@ class FlickrRepositoryImpl @Inject constructor() : FlickrRepository {
             .build()
             .create(FlickrApi::class.java)
 
+        val noSpacesUserName = userName.replace("\\s".toRegex(), EMPTY) // some usernames were empty and it caused crash
         return try {
-            val response = api.getUserPhotos(userName).execute()
+            val response = api.getUserPhotos(noSpacesUserName).execute()
             if (response.isSuccessful)
                 response.body()
             else

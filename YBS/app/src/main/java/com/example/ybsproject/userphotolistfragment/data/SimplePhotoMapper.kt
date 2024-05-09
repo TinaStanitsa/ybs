@@ -1,7 +1,5 @@
 package com.example.ybsproject.userphotolistfragment.data
 
-import com.example.ybsproject.EMPTY
-import com.example.ybsproject.flickr.Tag
 import com.example.ybsproject.flickr.UserPhotosResponse
 import javax.inject.Inject
 

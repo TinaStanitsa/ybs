@@ -54,6 +54,17 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_name_title"
                 tools:text="Today" />
 
+            <TextView
+                android:id="@+id/tv_post_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_profile_picture"
+                tools:text="Image Title" />
+
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/tv_post_picture"
                 android:layout_width="match_parent"
@@ -63,7 +74,7 @@
                 android:src="@drawable/ic_launcher_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/tv_post_title"
                 app:shapeAppearanceOverlay="@style/photoCorneredRadiusView" />
 
             <TextView
