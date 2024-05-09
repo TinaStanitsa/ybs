@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -14,6 +15,7 @@ import com.example.ybsproject.POST_ID
 import com.example.ybsproject.PROFILE_URL
 import com.example.ybsproject.R
 import com.example.ybsproject.USER_ID
+import com.example.ybsproject.ViewState
 import com.example.ybsproject.databinding.FragmentMainBinding
 import com.example.ybsproject.mainfragment.adapter.PhotoAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,16 +41,38 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
-        if (viewModel.photosLiveData.value.isNullOrEmpty()) // so it will not get initialised every time we go back from photo fragment
+        if (viewModel.postData.value !is ViewState.Success) // so it will not get initialised every time we go back from photo fragment
             viewModel.getInitialPhotos()
 
         binding.tvTitle.text = getString(R.string.flickr_posts_of_yorkshire)
     }
 
     private fun initListeners() {
-        viewModel.photosLiveData.observe(viewLifecycleOwner) {
-            binding.rvPosts.layoutManager = LinearLayoutManager(context)
-            binding.rvPosts.adapter = PhotoAdapter(it, ::onPostClicked, ::onProfileCLicked)
+        viewModel.postData.observe(viewLifecycleOwner) {
+            when(it){
+                is ViewState.Success ->{
+
+                    binding.rvPosts.layoutManager = LinearLayoutManager(context)
+                    binding.rvPosts.adapter = PhotoAdapter(it.result, ::onPostClicked, ::onProfileCLicked)
+                    binding.lottieAnimation.isVisible = false
+                    binding.lottieAnimation.cancelAnimation()
+                }
+
+                is ViewState.Loading ->{
+                    binding.lottieAnimation.isVisible = true
+                    binding.lottieAnimation.playAnimation()
+                }
+
+                is ViewState.Error -> {
+                    binding.lottieAnimation.isVisible = false
+                    binding.lottieAnimation.cancelAnimation()
+                    binding.btnError.isVisible = true
+                    binding.btnError.setOnClickListener {
+                        viewModel.getInitialPhotos()
+                    }
+                }
+            }
+
         }
     }
 

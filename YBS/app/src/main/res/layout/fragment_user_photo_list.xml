@@ -79,11 +79,12 @@
         android:layout_width="wrap_content"
         android:layout_height="75dp"
         android:textAllCaps="false"
-        tools:text="Error! Press to try again!"
-        app:layout_constraintTop_toBottomOf="@id/tv_previous_posts"
-        app:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_previous_posts"
+        tools:text="Error! Press to try again!"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

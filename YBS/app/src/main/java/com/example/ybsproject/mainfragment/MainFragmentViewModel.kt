@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.ybsproject.EMPTY
+import com.example.ybsproject.ViewState
 import com.example.ybsproject.mainfragment.data.PhotoMapper
 import com.example.ybsproject.mainfragment.data.Post
 import com.example.ybsproject.repository.FlickrRepositoryImpl
@@ -17,13 +19,19 @@ class MainFragmentViewModel @Inject constructor(
     private val photoMapper: PhotoMapper,
     private val repository: FlickrRepositoryImpl
 ) : ViewModel() {
-    private val mutablePhotosLiveData = MutableLiveData<List<Post>>()
-    val photosLiveData: LiveData<List<Post>> = mutablePhotosLiveData
+    private val _postData = MutableLiveData<ViewState<List<Post>, Any>>()
+    val postData: LiveData<ViewState<List<Post>,Any>> = _postData
 
     fun getInitialPhotos() {
         viewModelScope.launch(Dispatchers.IO) {
+            _postData.postValue(ViewState.Loading)
             val photos = repository.getInitialPhotos()
-            photos?.let { mutablePhotosLiveData.postValue(photoMapper(it)) }
+            photos?.let {
+                _postData.postValue(ViewState.Success(photoMapper(it)))
+            }
+            if (photos == null){
+                _postData.postValue(ViewState.Error(EMPTY))
+            }
         }
     }
 }

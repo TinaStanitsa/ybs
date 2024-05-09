@@ -1,0 +1,45 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="2500dp"
+    android:height="2500dp"
+    android:viewportWidth="256"
+    android:viewportHeight="256">
+  <path
+      android:pathData="M32.46,4.46L223.9,4.46A28,28 0,0 1,251.9 32.46L251.9,223.9A28,28 0,0 1,223.9 251.9L32.46,251.9A28,28 0,0 1,4.46 223.9L4.46,32.46A28,28 0,0 1,32.46 4.46z"
+      android:fillType="evenOdd">
+    <aapt:attr name="android:fillColor">
+      <gradient 
+          android:startX="128.18"
+          android:startY="4.46"
+          android:endX="128.18"
+          android:endY="251.9"
+          android:type="linear">
+        <item android:offset="0" android:color="#FFFFFFFF"/>
+        <item android:offset="1" android:color="#FFF3F3F3"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path
+      android:pathData="M46.7,8.02C25.3,8.02 7.89,25.43 7.89,46.84v162.31c0,21.4 17.41,38.82 38.82,38.82h162.31c21.41,0 38.82,-17.42 38.82,-38.82L247.83,46.84c0,-21.4 -17.41,-38.82 -38.82,-38.82L46.7,8.02zM209.01,255.62L46.7,255.62c-25.63,0 -46.47,-20.85 -46.47,-46.47L0.23,46.84C0.23,21.21 21.08,0.36 46.7,0.36h162.31c25.63,0 46.47,20.85 46.47,46.48v162.31c0,25.62 -20.85,46.47 -46.47,46.47z"
+      android:fillType="evenOdd">
+    <aapt:attr name="android:fillColor">
+      <gradient 
+          android:startX="127.85"
+          android:startY="8.78"
+          android:endX="127.85"
+          android:endY="255.62"
+          android:type="linear">
+        <item android:offset="0" android:color="#FFDCDCDC"/>
+        <item android:offset="1" android:color="#FFD2D2D2"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path
+      android:pathData="M116.25,127.99c0,19.45 -15.76,35.21 -35.21,35.21 -19.45,0 -35.21,-15.76 -35.21,-35.21 0,-19.45 15.76,-35.21 35.21,-35.21 19.45,0 35.21,15.77 35.21,35.21"
+      android:fillColor="#1D66D8"
+      android:fillType="evenOdd"/>
+  <path
+      android:pathData="M209.88,127.99c0,19.45 -15.77,35.21 -35.21,35.21 -19.45,0 -35.21,-15.76 -35.21,-35.21 0,-19.45 15.76,-35.21 35.21,-35.21 19.45,0 35.21,15.77 35.21,35.21"
+      android:fillColor="#FB0A84"
+      android:fillType="evenOdd"/>
+</vector>
