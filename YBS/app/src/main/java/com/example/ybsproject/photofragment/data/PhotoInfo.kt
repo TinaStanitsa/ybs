@@ -1,4 +1,4 @@
-package com.example.ybsproject.mainfragment.data
+package com.example.ybsproject.photofragment.data
 
 data class PhotoInfo(
     val userName :String?,

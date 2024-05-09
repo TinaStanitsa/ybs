@@ -1,4 +1,4 @@
-package com.example.ybsproject.mainfragment.data
+package com.example.ybsproject.photofragment.data
 
 import com.example.ybsproject.flickr.PhotoResponse
 import com.example.ybsproject.flickr.Tag

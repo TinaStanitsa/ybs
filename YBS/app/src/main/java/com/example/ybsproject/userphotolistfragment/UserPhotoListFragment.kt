@@ -8,11 +8,14 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.ybsproject.PROFILE_URL
 import com.example.ybsproject.R
 import com.example.ybsproject.USER_ID
 import com.example.ybsproject.databinding.FragmentUserPhotoListBinding
+import com.example.ybsproject.mainfragment.adapter.PhotoAdapter
+import com.example.ybsproject.userphotolistfragment.adapter.SimplePhotoAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -60,6 +63,11 @@ class UserPhotoListFragment : Fragment() {
     private fun initListeners() {
         binding.ivBackButton.setOnClickListener {
             findNavController().navigateUp()
+        }
+
+        viewModel.photoInfoLiveData.observe(viewLifecycleOwner){
+            binding.rvPosts.layoutManager = LinearLayoutManager(context)
+            binding.rvPosts.adapter = SimplePhotoAdapter(it)
         }
     }
 

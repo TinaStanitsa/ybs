@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ybsproject.mainfragment.data.InfoMapper
-import com.example.ybsproject.mainfragment.data.PhotoInfo
+import com.example.ybsproject.photofragment.data.InfoMapper
+import com.example.ybsproject.photofragment.data.PhotoInfo
 import com.example.ybsproject.repository.FlickrRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -29,5 +29,4 @@ class PhotoViewModel @Inject constructor(
 
         }
     }
-
 }
