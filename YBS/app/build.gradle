@@ -72,8 +72,12 @@ dependencies {
     implementation libs.androidx.navigation.fragment.ktx
     implementation libs.androidx.navigation.ui.ktx
 
+    //repository
     implementation libs.retrofit
     implementation libs.converter.gson
     implementation libs.logging.interceptor
     implementation libs.glide
+
+    //lottie
+    implementation libs.lottie
 }

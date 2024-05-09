@@ -75,7 +75,7 @@ class PhotoFragment : Fragment() {
 
         viewModel.photoInfoLiveData.observe(viewLifecycleOwner) {
 
-
+            binding.cvPhotoInfo.isVisible = true
             binding.tvPhotoInfo.text = getString(R.string.photo_info)
             binding.tvPhotoInfo.isVisible = true
 
