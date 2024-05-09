@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import javax.inject.Inject
 
-class PhotoMapper @Inject constructor(
+class MainFragmentMapper @Inject constructor(
     @ApplicationContext private val context: Context
 ) : (List<PostResponse>) -> List<Post> {
     override fun invoke(data: List<PostResponse>): List<Post> {

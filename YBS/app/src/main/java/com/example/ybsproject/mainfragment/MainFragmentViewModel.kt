@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ybsproject.EMPTY
 import com.example.ybsproject.ViewState
-import com.example.ybsproject.mainfragment.data.PhotoMapper
+import com.example.ybsproject.mainfragment.data.MainFragmentMapper
 import com.example.ybsproject.mainfragment.data.Post
 import com.example.ybsproject.repository.FlickrRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainFragmentViewModel @Inject constructor(
-    private val photoMapper: PhotoMapper,
+    private val photoMapper: MainFragmentMapper,
     private val repository: FlickrRepositoryImpl
 ) : ViewModel() {
     private val _postData = MutableLiveData<ViewState<List<Post>, Any>>()
