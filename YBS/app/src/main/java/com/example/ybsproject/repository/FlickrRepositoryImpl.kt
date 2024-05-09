@@ -45,9 +45,9 @@ class FlickrRepositoryImpl @Inject constructor() : FlickrRepository {
         return try {
             val response = api.fetchImages().execute()
             if (response.isSuccessful)
-                response.body()?.photos?.photo
+               response.body()?.photos?.photo
             else
-                emptyList()
+                null
         } catch (e: Exception) {
             null
         }

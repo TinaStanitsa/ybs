@@ -65,6 +65,7 @@ class MainFragment : Fragment() {
                 }
 
                 is ViewState.Error -> {
+                    binding.btnError.text = getString(R.string.error_try_again)
                     binding.lottieAnimation.isVisible = false
                     binding.lottieAnimation.cancelAnimation()
                     binding.btnError.isVisible = true

@@ -77,6 +77,7 @@ class UserFragment : Fragment() {
                 }
 
                 is ViewState.Error -> {
+                    binding.btnError.text = getString(R.string.error_try_again)
                     binding.btnError.isVisible = true
                     binding.btnError.setOnClickListener {
                         userName?.let { uName ->

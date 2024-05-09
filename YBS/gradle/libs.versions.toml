@@ -16,7 +16,7 @@ constraintlayout = "2.1.4"
 hiltVersion = "2.50"
 mockk = "1.13.10"
 nav_version = "2.7.7"
-retrofit = "2.7.1"
+retrofit = "2.9.0"
 
 [libraries]
 androidx-core-common = { module = "androidx.arch.core:core-common", version.ref = "coreCommon" }
