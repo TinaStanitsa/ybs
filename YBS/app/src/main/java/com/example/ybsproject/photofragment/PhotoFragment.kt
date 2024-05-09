@@ -11,10 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.ybsproject.EMPTY
 import com.example.ybsproject.PHOTO_URL
 import com.example.ybsproject.POST_ID
 import com.example.ybsproject.PROFILE_URL
 import com.example.ybsproject.R
+import com.example.ybsproject.USER_ID
 import com.example.ybsproject.databinding.FragmentPhotoBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,6 +29,7 @@ class PhotoFragment : Fragment() {
     private var _binding: FragmentPhotoBinding? = null
 
     private val binding get() = _binding!!
+    private var userName = EMPTY
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -78,6 +81,7 @@ class PhotoFragment : Fragment() {
 
             binding.tvRealName.text = it.realName
             binding.tvUserName.text = it.userName
+            userName = it.userName ?: EMPTY
 
             it.title?.let { titleText ->
                 binding.tvTitle.text = getString(R.string.photo_title)
@@ -105,7 +109,8 @@ class PhotoFragment : Fragment() {
 
         binding.clUserInfo.setOnClickListener {
             val bundle = bundleOf(
-                PROFILE_URL to profilePictureUrl
+                PROFILE_URL to profilePictureUrl,
+                USER_ID to userName
             )
             findNavController().navigate(R.id.action_photoFragment_to_userPhotoListFragment, bundle)
         }

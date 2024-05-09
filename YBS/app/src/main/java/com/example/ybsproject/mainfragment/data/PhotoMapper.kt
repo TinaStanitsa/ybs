@@ -19,8 +19,8 @@ class PhotoMapper @Inject constructor(
                 url = "https://farm${it.farm}.staticflickr.com/${it.server}/${it.id}_${it.secret}.jpg",
                 title = it.title,
                 owner = it.owner,
-                ownerUrl = "https://farm${it.farm}.staticflickr.com/${it.server}/buddyicons/${it.owner}.jpg",
-                ownerName = it.ownername,
+                profilePictureUrl = "https://farm${it.farm}.staticflickr.com/${it.server}/buddyicons/${it.owner}.jpg",
+                userName = it.ownername,
                 tags = it.tags,
                 dateUpload = setCorrectDate(it.dateupload)
             )

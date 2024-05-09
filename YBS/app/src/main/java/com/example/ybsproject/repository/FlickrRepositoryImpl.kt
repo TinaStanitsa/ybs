@@ -3,6 +3,7 @@ package com.example.ybsproject.repository
 import com.example.ybsproject.flickr.FlickrApi
 import com.example.ybsproject.flickr.PhotoResponse
 import com.example.ybsproject.flickr.PostResponse
+import com.example.ybsproject.flickr.UserPhotosResponse
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -81,8 +82,40 @@ class FlickrRepositoryImpl @Inject constructor() : FlickrRepository {
         }
         catch (e:Exception){
             null
-
         }
 
+    }
+
+    override fun getUserPhotos(userName: String): UserPhotosResponse? {
+        val api = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(
+                GsonConverterFactory.create(
+                    GsonBuilder()
+                        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                        .create()
+                )
+            )
+            .client(
+                OkHttpClient.Builder().connectTimeout(
+                    CONNECTION_TIMEOUT_MS,
+                    TimeUnit.SECONDS
+                ).addInterceptor(HttpLoggingInterceptor().apply {
+                    level = HttpLoggingInterceptor.Level.BASIC
+                }).build()
+            )
+            .build()
+            .create(FlickrApi::class.java)
+
+        return try{
+            val response = api.getUserPhotos(userName).execute()
+            if (response.isSuccessful)
+                response.body()
+            else
+                null
+        }
+        catch (e:Exception){
+            null
+        }
     }
 }

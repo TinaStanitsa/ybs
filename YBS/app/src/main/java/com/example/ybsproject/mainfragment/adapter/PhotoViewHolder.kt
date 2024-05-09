@@ -8,32 +8,32 @@ import com.example.ybsproject.mainfragment.data.Post
 
 class PhotoViewHolder(
     private val binding: LayoutPhotoCardBinding
-): RecyclerView.ViewHolder(binding.root) {
+) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(
         item: Post,
         onPostClicked: (String, String, String) -> Unit,
         onProfileCLicked: (String, String) -> Unit
-    ){
-        binding.tvNameTitle.text = item.ownerName
+    ) {
+        binding.tvNameTitle.text = item.userName
         Glide.with(binding.tvPostPicture)
             .load(item.url)
             .into(binding.tvPostPicture)
         Glide.with(binding.tvProfilePicture)
-            .load(item.ownerUrl)
+            .load(item.profilePictureUrl)
             .into(binding.tvProfilePicture)
         binding.tvTags.text = item.tags
         binding.tvDate.text = item.dateUpload
 
         binding.root.setOnClickListener {
-            onPostClicked(item.id, item.url, item.ownerUrl)
+            onPostClicked(item.id, item.url, item.profilePictureUrl)
         }
 
         binding.tvProfilePicture.setOnClickListener {
-            onProfileCLicked(item.owner, item.ownerUrl)
+            onProfileCLicked(item.owner, item.profilePictureUrl)
         }
         binding.tvNameTitle.setOnClickListener {
-            onProfileCLicked(item.owner, item.ownerUrl)
+            onProfileCLicked(item.userName, item.profilePictureUrl)
         }
         binding.tvTagsTitle.text = binding.tvTagsTitle.context.getString(R.string.photo_tags)
     }

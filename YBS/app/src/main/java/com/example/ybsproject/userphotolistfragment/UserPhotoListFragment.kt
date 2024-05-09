@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.ybsproject.PROFILE_URL
+import com.example.ybsproject.R
+import com.example.ybsproject.USER_ID
 import com.example.ybsproject.databinding.FragmentUserPhotoListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,11 +39,22 @@ class UserPhotoListFragment : Fragment() {
                 }
             })
 
-        val profilePictureUrl = arguments?.getString("profile_url")
+        val profilePictureUrl = arguments?.getString(PROFILE_URL)
+        val userName = arguments?.getString(USER_ID)
+
         Glide.with(binding.tvProfilePicture)
             .load(profilePictureUrl)
             .into(binding.tvProfilePicture)
         initListeners()
+
+        userName?.let {
+            binding.tvUserName.text = it
+            viewModel.getPhotosOfUser(userName)
+        }
+
+        binding.tvPreviousPosts.text = getString(R.string.previous_posts)
+
+
     }
 
     private fun initListeners() {

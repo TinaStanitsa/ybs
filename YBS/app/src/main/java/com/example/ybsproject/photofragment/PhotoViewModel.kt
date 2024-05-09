@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ybsproject.mainfragment.data.InfoMapper
 import com.example.ybsproject.mainfragment.data.PhotoInfo
-import com.example.ybsproject.mainfragment.data.Post
 import com.example.ybsproject.repository.FlickrRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

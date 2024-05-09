@@ -10,10 +10,11 @@ class PhotoAdapter(
     private val dataset: List<Post>,
     private val onPostClicked: (String, String, String) -> Unit,
     private val onProfileCLicked: (String, String) -> Unit
-): RecyclerView.Adapter<PhotoViewHolder>() {
+) : RecyclerView.Adapter<PhotoViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return PhotoViewHolder(LayoutPhotoCardBinding.inflate(layoutInflater,parent,false))
+        return PhotoViewHolder(LayoutPhotoCardBinding.inflate(layoutInflater, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -21,6 +22,6 @@ class PhotoAdapter(
     }
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
-        holder.bind(dataset[position],onPostClicked, onProfileCLicked )
+        holder.bind(dataset[position], onPostClicked, onProfileCLicked)
     }
 }

@@ -25,7 +25,7 @@ data class PostResponse(
     val dateupload: String
 )
 
-
+// USER INFO
 data class PhotoResponse(
     val photo: Photo
 )
@@ -86,4 +86,24 @@ data class Region(
 
 data class Country(
     val _content: String
+)
+
+
+// USER PHOTOS
+data class UserPhotosResponse(
+    val photos: UserPhotos,
+)
+
+data class UserPhotos(
+    val photo: List<UserPhoto>
+)
+
+data class UserPhoto(
+    val id: String,
+    val owner: String,
+    val secret: String,
+    val server: String,
+    val farm: Int,
+    val title: String,
+
 )
