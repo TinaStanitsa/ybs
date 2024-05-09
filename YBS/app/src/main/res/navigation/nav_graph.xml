@@ -27,6 +27,6 @@
     </fragment>
     <fragment
         android:id="@+id/userPhotoListFragment"
-        android:name="com.example.ybsproject.userphotolistfragment.UserPhotoListFragment"
+        android:name="com.example.ybsproject.userfragment.UserFragment"
         android:label="UserPhotoListFragment" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.ybsproject.userphotolistfragment
+package com.example.ybsproject.userfragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,12 +16,12 @@ import com.example.ybsproject.R
 import com.example.ybsproject.USER_ID
 import com.example.ybsproject.ViewState
 import com.example.ybsproject.databinding.FragmentUserPhotoListBinding
-import com.example.ybsproject.userphotolistfragment.adapter.SimplePhotoAdapter
+import com.example.ybsproject.userfragment.adapter.SimplePhotoAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class UserPhotoListFragment : Fragment() {
-    private val viewModel by viewModels<UserPhotoListViewModel>()
+class UserFragment : Fragment() {
+    private val viewModel by viewModels<UserViewModel>()
     private var _binding: FragmentUserPhotoListBinding? = null
     private val binding get() = _binding!!
 

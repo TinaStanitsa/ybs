@@ -80,4 +80,10 @@ dependencies {
 
     //lottie
     implementation libs.lottie
+
+    //tests
+    testImplementation libs.mockk
+    implementation libs.androidx.core.common
+    implementation libs.androidx.core.runtime
+    implementation libs.androidx.core.testing
 }

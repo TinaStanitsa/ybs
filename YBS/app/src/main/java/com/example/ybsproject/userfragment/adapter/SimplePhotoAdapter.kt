@@ -1,10 +1,10 @@
-package com.example.ybsproject.userphotolistfragment.adapter
+package com.example.ybsproject.userfragment.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ybsproject.databinding.LayoutPhotoSimpleBinding
-import com.example.ybsproject.userphotolistfragment.data.SimplePhotoData
+import com.example.ybsproject.userfragment.data.SimplePhotoData
 
 class SimplePhotoAdapter(
     private val dataset: List<SimplePhotoData>,

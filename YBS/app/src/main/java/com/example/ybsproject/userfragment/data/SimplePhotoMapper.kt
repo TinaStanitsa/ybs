@@ -1,4 +1,4 @@
-package com.example.ybsproject.userphotolistfragment.data
+package com.example.ybsproject.userfragment.data
 
 import com.example.ybsproject.flickr.UserPhotosResponse
 import javax.inject.Inject
