@@ -14,8 +14,8 @@ import com.example.ybsproject.photofragment.data.InfoMapper
 import com.example.ybsproject.photofragment.data.PhotoInfo
 import com.example.ybsproject.repository.FlickrRepositoryImpl
 import com.example.ybsproject.userfragment.UserViewModel
-import com.example.ybsproject.userfragment.data.SimplePhotoData
-import com.example.ybsproject.userfragment.data.SimplePhotoMapper
+import com.example.ybsproject.userfragment.data.UserData
+import com.example.ybsproject.userfragment.data.UserDataMapper
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -41,7 +41,7 @@ class ViewModelTests {
 
     private val mainFragmentMapper: MainFragmentMapper = mockk(relaxed = true)
     private val infoMapper: InfoMapper = mockk(relaxed = true)
-    private val simplePhotoMapper: SimplePhotoMapper = mockk(relaxed = true)
+    private val simplePhotoMapper: UserDataMapper = mockk(relaxed = true)
     private val userPhotosResponse: UserPhotosResponse = mockk(relaxed = true)
     private val photoResponse: PhotoResponse = mockk(relaxed = true)
     private val photoInfo: PhotoInfo = mockk(relaxed = true)
@@ -120,7 +120,7 @@ class ViewModelTests {
         userViewModel.getPhotosOfUser(EMPTY)
 
         verify(exactly = 1) { repository.getUserPhotos(EMPTY) }
-        assertEquals(userViewModel.photoData.value, ViewState.Success(emptyList<SimplePhotoData>()))
+        assertEquals(userViewModel.photoData.value, ViewState.Success(emptyList<UserData>()))
     }
 
     @Test

@@ -1,6 +1,6 @@
 package com.example.ybsproject.userfragment.data
 
-data class SimplePhotoData(
+data class UserData(
     val photoUrl: String,
     val title: String
 )

@@ -2,6 +2,8 @@ package com.example.ybsproject.photofragment.data
 
 import com.example.ybsproject.flickr.PhotoResponse
 import com.example.ybsproject.flickr.Tag
+import java.text.SimpleDateFormat
+import java.util.Date
 import javax.inject.Inject
 
 class InfoMapper @Inject constructor(
@@ -17,7 +19,10 @@ class InfoMapper @Inject constructor(
             location = getLocation(
                 infoResponse.photo.location?.country?._content,
                 infoResponse.photo.location?.county?._content
-            )
+            ),
+            views = infoResponse.photo.views,
+            description = infoResponse.photo.description?._content,
+            dateUploaded = formatDate(infoResponse.photo.dateuploaded)
         )
     }
 
@@ -47,5 +52,17 @@ class InfoMapper @Inject constructor(
             country != null && county == null -> country
             else -> null
         }
+    }
+
+    private fun formatDate(timestampString: String?): String? {
+        if (timestampString == null)
+            return null
+        val timestamp = timestampString.toLong()
+
+        val date = Date(timestamp * 1000L)
+
+        val dateFormat = SimpleDateFormat("dd-MMM-yyyy")
+
+        return dateFormat.format(date)
     }
 }

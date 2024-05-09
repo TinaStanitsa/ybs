@@ -7,5 +7,8 @@ data class PhotoInfo(
     val region: String?,
     val tags: String?,
     val location: String?,
-    val title: String?
+    val title: String?,
+    val views: String?,
+    val description: String?,
+    val dateUploaded: String?
 )

@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.ybsproject.EMPTY
 import com.example.ybsproject.ViewState
 import com.example.ybsproject.repository.FlickrRepositoryImpl
-import com.example.ybsproject.userfragment.data.SimplePhotoData
-import com.example.ybsproject.userfragment.data.SimplePhotoMapper
+import com.example.ybsproject.userfragment.data.UserData
+import com.example.ybsproject.userfragment.data.UserDataMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,12 +16,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UserViewModel @Inject constructor(
-    private val simplePhotoMapper: SimplePhotoMapper,
+    private val simplePhotoMapper: UserDataMapper,
     private val repository: FlickrRepositoryImpl
 ) : ViewModel() {
 
-    private val _photoData = MutableLiveData<ViewState<List<SimplePhotoData>, Any>>()
-    val photoData: LiveData<ViewState<List<SimplePhotoData>,Any>> = _photoData
+    private val _photoData = MutableLiveData<ViewState<List<UserData>, Any>>()
+    val photoData: LiveData<ViewState<List<UserData>, Any>> = _photoData
 
     fun getPhotosOfUser(userName: String) {
         viewModelScope.launch(Dispatchers.IO) {

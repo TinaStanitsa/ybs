@@ -112,6 +112,26 @@ class PhotoFragment : Fragment() {
                         binding.tvTagsTitle.isVisible = true
                         binding.tvTagsText.isVisible = true
                     }
+
+                    it.result.description?.let { descriptionText ->
+                        binding.tvDescriptionTitle.text = getString(R.string.description_title)
+                        binding.tvDescriptionText.text = descriptionText
+                        binding.tvDescriptionTitle.isVisible = true
+                        binding.tvDescriptionText.isVisible = true
+                    }
+
+                    it.result.views?.let { viewsText ->
+                        binding.tvViewsTitle.text = getString(R.string.views_title)
+                        binding.tvViewsText.text = viewsText
+                        binding.tvViewsTitle.isVisible = true
+                        binding.tvViewsText.isVisible = true
+                    }
+                    it.result.dateUploaded?.let { dateUploadedText ->
+                        binding.tvDateUploadedTitle.text = getString(R.string.date_uploaded)
+                        binding.tvDateUploadedText.text = dateUploadedText
+                        binding.tvDateUploadedTitle.isVisible = true
+                        binding.tvDateUploadedText.isVisible = true
+                    }
                 }
 
                 is ViewState.Error -> {

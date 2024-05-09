@@ -12,4 +12,7 @@
     <string name="day_d">d</string>
     <string name="previous_posts">Previous posts</string>
     <string name="error_try_again">Error! Please try again</string>
+    <string name="description_title">Description:</string>
+    <string name="views_title">Views:</string>
+    <string name="date_uploaded">Date uploaded:</string>
 </resources>

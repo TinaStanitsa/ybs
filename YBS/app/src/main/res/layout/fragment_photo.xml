@@ -101,7 +101,8 @@
             app:cardCornerRadius="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_photo_info">
+            app:layout_constraintTop_toBottomOf="@id/tv_photo_info"
+            tools:visibility="visible">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_photo_info"
@@ -129,7 +130,7 @@
                     android:id="@+id/tv_title_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
+                    android:layout_marginHorizontal="4dp"
                     android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="@id/tv_title"
                     app:layout_constraintStart_toEndOf="@id/tv_title"
@@ -155,7 +156,7 @@
                     android:id="@+id/tv_tags_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
+                    android:layout_marginHorizontal="4dp"
                     android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="@id/tv_tags_title"
                     app:layout_constraintStart_toEndOf="@id/tv_tags_title"
@@ -169,7 +170,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="4dp"
-                    android:paddingBottom="12dp"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:visibility="gone"
@@ -182,8 +182,7 @@
                     android:id="@+id/tv_location_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:paddingBottom="12dp"
+                    android:layout_marginHorizontal="4dp"
                     android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="@id/tv_location_title"
                     app:layout_constraintStart_toEndOf="@id/tv_location_title"
@@ -191,6 +190,86 @@
                     tools:text="Example Location"
                     tools:visibility="visible" />
 
+                <TextView
+                    android:id="@+id/tv_description_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_location_title"
+                    tools:text="Description:"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tv_description_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_description_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_description_title"
+                    app:layout_constraintTop_toTopOf="@id/tv_description_title"
+                    tools:text="description description"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tv_views_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_description_title"
+                    tools:text="Views:"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tv_views_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_views_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_views_title"
+                    app:layout_constraintTop_toTopOf="@id/tv_views_title"
+                    tools:text="725"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tv_date_uploaded_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_views_title"
+                    tools:text="Date Uploaded:"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tv_date_uploaded_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_date_uploaded_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_date_uploaded_title"
+                    app:layout_constraintTop_toTopOf="@id/tv_date_uploaded_title"
+                    tools:text="725"
+                    tools:visibility="visible" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
