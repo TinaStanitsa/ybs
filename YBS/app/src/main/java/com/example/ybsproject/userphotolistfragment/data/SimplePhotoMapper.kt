@@ -13,5 +13,4 @@ class SimplePhotoMapper @Inject constructor(
             )
         }
     }
-
 }

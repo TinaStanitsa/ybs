@@ -17,6 +17,7 @@ import com.example.ybsproject.POST_ID
 import com.example.ybsproject.PROFILE_URL
 import com.example.ybsproject.R
 import com.example.ybsproject.USER_ID
+import com.example.ybsproject.ViewState
 import com.example.ybsproject.databinding.FragmentPhotoBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,6 +31,7 @@ class PhotoFragment : Fragment() {
 
     private val binding get() = _binding!!
     private var userName = EMPTY
+    private var photoId: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,7 +52,7 @@ class PhotoFragment : Fragment() {
                 }
             })
 
-        val photoId = arguments?.getString(POST_ID)
+        photoId = arguments?.getString(POST_ID)
         val photoUrl = arguments?.getString(PHOTO_URL)
         val profilePictureUrl = arguments?.getString(PROFILE_URL)
 
@@ -73,37 +75,63 @@ class PhotoFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        viewModel.photoInfoLiveData.observe(viewLifecycleOwner) {
+        viewModel.postInfo.observe(viewLifecycleOwner) {
 
-            binding.cvPhotoInfo.isVisible = true
-            binding.tvPhotoInfo.text = getString(R.string.photo_info)
-            binding.tvPhotoInfo.isVisible = true
+            when (it) {
+                is ViewState.Success -> {
+                    binding.btnError.isVisible = false
+                    binding.lottieAnimation.isVisible = false
+                    binding.lottieAnimation.cancelAnimation()
 
-            binding.tvRealName.text = it.realName
-            binding.tvUserName.text = it.userName
-            userName = it.userName ?: EMPTY
+                    binding.cvPhotoInfo.isVisible = true
+                    binding.tvPhotoInfo.text = getString(R.string.photo_info)
+                    binding.tvPhotoInfo.isVisible = true
 
-            it.title?.let { titleText ->
-                binding.tvTitle.text = getString(R.string.photo_title)
+                    binding.tvRealName.text = it.result.realName
+                    binding.tvUserName.text = it.result.userName
+                    userName = it.result.userName ?: EMPTY
 
-                binding.tvTitleText.text = titleText
-                binding.tvTitle.isVisible = true
-                binding.tvTitleText.isVisible = true
+                    it.result.title?.let { titleText ->
+                        binding.tvTitle.text = getString(R.string.photo_title)
+
+                        binding.tvTitleText.text = titleText
+                        binding.tvTitle.isVisible = true
+                        binding.tvTitleText.isVisible = true
+                    }
+
+                    it.result.location?.let { locationText ->
+                        binding.tvLocationTitle.text = getString(R.string.photo_location)
+                        binding.tvLocationText.text = locationText
+                        binding.tvLocationTitle.isVisible = true
+                        binding.tvLocationText.isVisible = true
+                    }
+
+                    it.result.tags?.let { tagsText ->
+                        binding.tvTagsTitle.text = getString(R.string.photo_tags)
+                        binding.tvTagsText.text = tagsText
+                        binding.tvTagsTitle.isVisible = true
+                        binding.tvTagsText.isVisible = true
+                    }
+                }
+
+                is ViewState.Error -> {
+                    binding.lottieAnimation.isVisible = false
+                    binding.lottieAnimation.cancelAnimation()
+                    binding.btnError.isVisible = true
+                    binding.btnError.setOnClickListener {
+                        photoId?.let { pId ->
+                            viewModel.getPhotoInfo(pId)
+                        }
+                    }
+                }
+
+                is ViewState.Loading -> {
+                    binding.btnError.isVisible = false
+                    binding.lottieAnimation.isVisible = true
+                    binding.lottieAnimation.playAnimation()
+                }
             }
 
-            it.location?.let { locationText ->
-                binding.tvLocationTitle.text = getString(R.string.photo_location)
-                binding.tvLocationText.text = locationText
-                binding.tvLocationTitle.isVisible = true
-                binding.tvLocationText.isVisible = true
-            }
-
-            it.tags?.let { tagsText ->
-                binding.tvTagsTitle.text = getString(R.string.photo_tags)
-                binding.tvTagsText.text = tagsText
-                binding.tvTagsTitle.isVisible = true
-                binding.tvTagsText.isVisible = true
-            }
 
         }
 
