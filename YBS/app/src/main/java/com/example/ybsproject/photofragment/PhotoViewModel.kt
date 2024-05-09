@@ -16,7 +16,7 @@ import javax.inject.Inject
 class PhotoViewModel @Inject constructor(
     private val infoMapper: InfoMapper,
     private val repository: FlickrRepositoryImpl
-):ViewModel() {
+) : ViewModel() {
 
     private val mutablePhotoInfoLiveData = MutableLiveData<PhotoInfo>()
     val photoInfoLiveData: LiveData<PhotoInfo> = mutablePhotoInfoLiveData
@@ -24,7 +24,7 @@ class PhotoViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val photoInfo = repository.getPhotoInfo(photoId)
             photoInfo?.let {
-             mutablePhotoInfoLiveData.postValue(infoMapper(it))
+                mutablePhotoInfoLiveData.postValue(infoMapper(it))
             }
 
         }

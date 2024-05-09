@@ -79,8 +79,7 @@ class FlickrRepositoryImpl @Inject constructor() : FlickrRepository {
                 response.body()
             else
                 null
-        }
-        catch (e:Exception){
+        } catch (e: Exception) {
             null
         }
 
@@ -107,14 +106,13 @@ class FlickrRepositoryImpl @Inject constructor() : FlickrRepository {
             .build()
             .create(FlickrApi::class.java)
 
-        return try{
+        return try {
             val response = api.getUserPhotos(userName).execute()
             if (response.isSuccessful)
                 response.body()
             else
                 null
-        }
-        catch (e:Exception){
+        } catch (e: Exception) {
             null
         }
     }

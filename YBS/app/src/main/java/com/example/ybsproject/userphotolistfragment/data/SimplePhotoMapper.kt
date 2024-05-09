@@ -6,8 +6,7 @@ import com.example.ybsproject.flickr.UserPhotosResponse
 import javax.inject.Inject
 
 class SimplePhotoMapper @Inject constructor(
-
-):(UserPhotosResponse) -> List<SimplePhotoData> {
+) : (UserPhotosResponse) -> List<SimplePhotoData> {
     override fun invoke(data: UserPhotosResponse): List<SimplePhotoData> {
         return data.photos.photo.map {
             SimplePhotoData(

@@ -1,8 +1,8 @@
 package com.example.ybsproject.photofragment.data
 
 data class PhotoInfo(
-    val userName :String?,
-    val realName :String?,
+    val userName: String?,
+    val realName: String?,
     val country: String?,
     val region: String?,
     val tags: String?,

@@ -1,8 +1,6 @@
 package com.example.ybsproject.flickr
 
 
-
-
 data class FlickrResponse(
     val photos: PostData
 )
@@ -20,7 +18,7 @@ data class PostResponse(
     val server: String,
     val farm: Int,
     val title: String,
-    val ownername:String,
+    val ownername: String,
     val tags: String,
     val dateupload: String
 )

@@ -45,8 +45,8 @@ class MainFragment : Fragment() {
         binding.tvTitle.text = getString(R.string.flickr_posts_of_yorkshire)
     }
 
-    private fun initListeners(){
-        viewModel.photosLiveData.observe(viewLifecycleOwner){
+    private fun initListeners() {
+        viewModel.photosLiveData.observe(viewLifecycleOwner) {
             binding.rvPosts.layoutManager = LinearLayoutManager(context)
             binding.rvPosts.adapter = PhotoAdapter(it, ::onPostClicked, ::onProfileCLicked)
         }
@@ -57,15 +57,16 @@ class MainFragment : Fragment() {
         _binding = null
     }
 
-    private fun onPostClicked(postId: String, photoUrl:String, profilePictureUrl: String){
+    private fun onPostClicked(postId: String, photoUrl: String, profilePictureUrl: String) {
         val bundle = bundleOf(
             POST_ID to postId,
             PHOTO_URL to photoUrl,
-            PROFILE_URL to profilePictureUrl)
+            PROFILE_URL to profilePictureUrl
+        )
         findNavController().navigate(R.id.action_mainFragment_to_photoFragment, bundle)
     }
 
-    private fun onProfileCLicked(userID :String, profilePictureUrl: String){
+    private fun onProfileCLicked(userID: String, profilePictureUrl: String) {
         val bundle = bundleOf(
             USER_ID to userID,
             PROFILE_URL to profilePictureUrl

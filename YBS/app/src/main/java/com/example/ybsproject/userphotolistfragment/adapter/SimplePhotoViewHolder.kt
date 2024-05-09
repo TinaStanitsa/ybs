@@ -8,11 +8,10 @@ import com.example.ybsproject.userphotolistfragment.data.SimplePhotoData
 
 class SimplePhotoViewHolder(
     private val binding: LayoutPhotoSimpleBinding
-): RecyclerView.ViewHolder(binding.root) {
+) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: SimplePhotoData){
+    fun bind(item: SimplePhotoData) {
         binding.tvTitle.text = item.title
-        binding.tvTags.text = item.tags
         Glide.with(binding.tvPostPicture)
             .load(item.photoUrl)
             .into(binding.tvPostPicture)

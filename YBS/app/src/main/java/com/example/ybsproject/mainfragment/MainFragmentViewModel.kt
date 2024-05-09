@@ -1,6 +1,5 @@
 package com.example.ybsproject.mainfragment
 
-import androidx.core.os.bundleOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

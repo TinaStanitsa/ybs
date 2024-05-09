@@ -56,8 +56,6 @@ class UserPhotoListFragment : Fragment() {
         }
 
         binding.tvPreviousPosts.text = getString(R.string.previous_posts)
-
-
     }
 
     private fun initListeners() {
@@ -65,7 +63,7 @@ class UserPhotoListFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        viewModel.photoInfoLiveData.observe(viewLifecycleOwner){
+        viewModel.photoInfoLiveData.observe(viewLifecycleOwner) {
             binding.rvPosts.layoutManager = LinearLayoutManager(context)
             binding.rvPosts.adapter = SimplePhotoAdapter(it)
         }

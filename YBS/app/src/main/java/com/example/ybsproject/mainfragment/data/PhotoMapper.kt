@@ -11,9 +11,9 @@ import javax.inject.Inject
 
 class PhotoMapper @Inject constructor(
     @ApplicationContext private val context: Context
-): (List<PostResponse>) -> List<Post> {
+) : (List<PostResponse>) -> List<Post> {
     override fun invoke(data: List<PostResponse>): List<Post> {
-       return data.map {
+        return data.map {
             Post(
                 id = it.id,
                 url = "https://farm${it.farm}.staticflickr.com/${it.server}/${it.id}_${it.secret}.jpg",
@@ -26,7 +26,8 @@ class PhotoMapper @Inject constructor(
             )
         }
     }
-    private fun setCorrectDate(dateF: String): String{
+
+    private fun setCorrectDate(dateF: String): String {
         val timestamp = dateF.toLong() * 1000 // convert seconds to milliseconds
 
         val currentDate = Date()
@@ -38,7 +39,7 @@ class PhotoMapper @Inject constructor(
         } else {
             "${calculateDaysDifference(currentDate, date)}${context.getString(R.string.day_d)}"
         }
-        return  formattedDate
+        return formattedDate
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -49,6 +50,6 @@ class PhotoMapper @Inject constructor(
 
     private fun calculateDaysDifference(date1: Date, date2: Date): Long {
         val diffInMillis = date1.time - date2.time
-        return (diffInMillis / (1000 * 60 * 60 * 24)) +1
+        return (diffInMillis / (1000 * 60 * 60 * 24)) + 1
     }
 }

@@ -17,16 +17,16 @@ import javax.inject.Inject
 class UserPhotoListViewModel @Inject constructor(
     private val simplePhotoMapper: SimplePhotoMapper,
     private val repository: FlickrRepositoryImpl
-): ViewModel() {
+) : ViewModel() {
 
     private val mutablePhotoInfoLiveData = MutableLiveData<List<SimplePhotoData>>()
     val photoInfoLiveData: LiveData<List<SimplePhotoData>> = mutablePhotoInfoLiveData
 
-    fun getPhotosOfUser(userName : String){
+    fun getPhotosOfUser(userName: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val photos = repository.getUserPhotos(userName)
             photos?.let {
-               mutablePhotoInfoLiveData.postValue( simplePhotoMapper(it))
+                mutablePhotoInfoLiveData.postValue(simplePhotoMapper(it))
             }
         }
     }

@@ -6,7 +6,7 @@ data class Post(
     val title: String,
     val userName: String,
     val profilePictureUrl: String,
-    val owner:String,
+    val owner: String,
     val tags: String,
     val dateUpload: String
 )
